@@ -1,0 +1,17 @@
+{
+  "name": "basic-discord-bot",
+  "version": "0.0.1",
+  "description": "basic discord bot",
+  "main": "build/index.js",
+  "scripts": {
+    "watch": "tsc --watch",
+    "start": "nodemon --watch"
+  },
+  "repository": "https://github.com/sonicname/basic-discord-bot.git",
+  "author": "SoSmoothy <58429050+sonicname@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.8.1",
+    "dotenv": "^16.0.1"
+  }
+}
