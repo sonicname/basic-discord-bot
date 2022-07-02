@@ -11,6 +11,7 @@
   "author": "SoSmoothy <58429050+sonicname@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
     "discord.js": "^13.8.1",
     "dotenv": "^16.0.1"
   },

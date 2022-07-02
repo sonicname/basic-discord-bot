@@ -14,8 +14,7 @@ export class MessageCreateEvent extends Event {
     const commandName = args.shift();
 
     if (commandName) {
-      const command = bot.commands.get(commandName);
-
+      const command = bot.handlerSystem.getCommand(commandName);
       await command?.execute(bot, message, args);
     }
   }

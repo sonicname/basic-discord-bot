@@ -1,10 +1,8 @@
-import { Client, Collection, Intents } from 'discord.js';
-import { Event } from './Event';
-import { Command } from './Command';
-import { IExecute } from '@interface/IExecute';
+import { Client, Intents } from 'discord.js';
+import { HandlerSystem } from '@structures/HandlerSystem';
 
 export class Bot extends Client {
-  private _commands: Collection<string, Command> = new Collection();
+  public handlerSystem: HandlerSystem = new HandlerSystem();
 
   constructor(intents: Intents, private _prefix: string | undefined) {
     super({
@@ -22,21 +20,13 @@ export class Bot extends Client {
     }
   }
 
-  public register<T extends IExecute>(item: T): void {
-    if (item instanceof Event) this.on(item.eventName, (...args) => item.execute(this, ...args));
-    if (item instanceof Command) this._commands.set(item.commandName, item);
-  }
-
   public async active(token: string): Promise<void> {
     this.validate(token);
+    this.handlerSystem.initEvent(this);
     await this.login(token);
   }
 
   get prefix(): string | undefined {
     return this._prefix;
-  }
-
-  get commands(): Collection<string, IExecute> {
-    return this._commands;
   }
 }

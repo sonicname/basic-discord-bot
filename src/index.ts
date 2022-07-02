@@ -6,6 +6,7 @@ import { ReadyEvent } from '@events/ReadyEvent';
 import { MessageCreateEvent } from '@events/MessageCreateEvent';
 import { Command } from '@structures/Command';
 import { HelloCommand } from '@commands/HelloCommand';
+import { NSFWCommand } from '@commands/nsfw/NSFWCommand';
 
 config();
 
@@ -13,10 +14,11 @@ config();
   try {
     const bot = new Bot(new Intents(32767), process.env['PREFIX']);
     // Event register
-    bot.register<Event>(new ReadyEvent());
-    bot.register<Event>(new MessageCreateEvent());
+    bot.handlerSystem.register<Event>(new ReadyEvent());
+    bot.handlerSystem.register<Event>(new MessageCreateEvent());
     // Command Register
-    bot.register<Command>(new HelloCommand());
+    bot.handlerSystem.register<Command>(new HelloCommand());
+    bot.handlerSystem.register<Command>(new NSFWCommand());
 
     await bot.active(<string>process.env['TOKEN']);
   } catch (e) {
