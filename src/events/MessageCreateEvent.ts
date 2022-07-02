@@ -1,5 +1,5 @@
-import { Event } from '../structures/Event';
-import { Bot } from '../structures/Bot';
+import { Event } from '@structures/Event';
+import { Bot } from '@structures/Bot';
 import { Message } from 'discord.js';
 
 export class MessageCreateEvent extends Event {

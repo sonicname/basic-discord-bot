@@ -4,7 +4,7 @@
   "description": "basic discord bot",
   "main": "build/index.js",
   "scripts": {
-    "watch": "tsc --watch",
+    "watch": "concurrently \"tsc -w\" \"tsc-alias -w\"",
     "start": "nodemon --watch"
   },
   "repository": "https://github.com/sonicname/basic-discord-bot.git",
@@ -13,5 +13,8 @@
   "dependencies": {
     "discord.js": "^13.8.1",
     "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "tsc-alias": "^1.6.11"
   }
 }

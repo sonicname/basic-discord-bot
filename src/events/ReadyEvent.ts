@@ -1,5 +1,5 @@
-import { Event } from '../structures/Event';
-import { Bot } from '../structures/Bot';
+import { Event } from '@structures/Event';
+import { Bot } from '@structures/Bot';
 
 export class ReadyEvent extends Event {
   constructor() {

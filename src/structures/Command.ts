@@ -1,4 +1,4 @@
-import { IExecute } from '../interface/IExecute';
+import { IExecute } from '@interface/IExecute';
 import { Bot } from './Bot';
 import { Message } from 'discord.js';
 

@@ -1,7 +1,7 @@
 import { Client, Collection, Intents } from 'discord.js';
-import { IExecute } from '../interface/IExecute';
 import { Event } from './Event';
 import { Command } from './Command';
+import { IExecute } from '@interface/IExecute';
 
 export class Bot extends Client {
   private _commands: Collection<string, Command> = new Collection();
@@ -23,13 +23,8 @@ export class Bot extends Client {
   }
 
   public register<T extends IExecute>(item: T): void {
-    if (item instanceof Event) {
-      this.on(item.eventName, (...args) => item.execute(this, ...args));
-    }
-
-    if (item instanceof Command) {
-      this._commands.set(item.commandName, item);
-    }
+    if (item instanceof Event) this.on(item.eventName, (...args) => item.execute(this, ...args));
+    if (item instanceof Command) this._commands.set(item.commandName, item);
   }
 
   public async active(token: string): Promise<void> {

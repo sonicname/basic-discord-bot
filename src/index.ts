@@ -1,11 +1,11 @@
 import { Intents } from 'discord.js';
 import { config } from 'dotenv';
-import { Bot } from './structures/Bot';
-import { Event } from './structures/Event';
-import { ReadyEvent } from './events/ReadyEvent';
-import { MessageCreateEvent } from './events/MessageCreateEvent';
-import { Command } from './structures/Command';
-import { HelloCommand } from './commands/HelloCommand';
+import { Bot } from '@structures/Bot';
+import { Event } from '@structures/Event';
+import { ReadyEvent } from '@events/ReadyEvent';
+import { MessageCreateEvent } from '@events/MessageCreateEvent';
+import { Command } from '@structures/Command';
+import { HelloCommand } from '@commands/HelloCommand';
 
 config();
 
